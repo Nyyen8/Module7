@@ -16,21 +16,29 @@ def make_list():
     list_length = 3
 
     for index in range(list_length):
-        output_list.append(get_input())
+        output_list.append(validate_input(get_input()))
 
     return output_list
 
-'''Function to accept user input, verify it is a positive whole number from 1 to 9.
-:user_input: The integer to be returned.
-:returns: Validated integer from 1 to 9'''
+'''Function to accept user input.
+:user_input: input from user.
+:returns: User input'''
 def get_input():
+    user_input = input('Please enter a number from 1 to 9.\n')
+    return user_input
+
+'''Function to accept user input and verify it is a positive whole number from 1 to 9.
+:input: User input passed into the function.
+:valid_input: Input that has been shows to be an integer
+:returns: Nothing'''
+def validate_input(input):
     while True:
         try:
-            user_input = int(input('Please enter a number from 1 to 9.\n'))
-            if user_input > 9:
+            valid_input = int(input)
+            if valid_input > 9:
                 print('Number too high. Choose a number from 1 to 9')
                 continue
-            elif user_input < 1:
+            elif valid_input < 1:
                 print('Number too low. Choose a number from 1 to 9')
                 continue
             else:
@@ -38,8 +46,7 @@ def get_input():
         except ValueError:
             print('Invalid input. Please use only numbers from 1 to 9')
             continue
-
-    return user_input
+    return valid_input
 
 if __name__ == '__main__':
     print(make_list())
