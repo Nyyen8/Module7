@@ -17,6 +17,16 @@ class TestList(unittest.TestCase):
         with self.assertRaises(ValueError):
             list.make_list()
 
+    @patch('fun_with_collections.basic_list_exception.get_input', return_value='-2')
+    def test_make_list_below_1(self, input):
+        with self.assertRaises(ValueError):
+            list.make_list()
+
+    @patch('fun_with_collections.basic_list_exception.get_input', return_value='55')
+    def test_make_list_above_50(self, input):
+        with self.assertRaises(ValueError):
+            list.make_list()
+
 
 if __name__ == '__main__':
     unittest.main()
