@@ -11,15 +11,17 @@ from fun_with_collections import sort_and_search_list as SandS
 
 
 class List_Test_Cases(unittest.TestCase):
+    '''Test to make sure search_list returns correct index position.'''
     def test_search_found(self):
-        self.assertEqual(SandS.search_list('dog'), 1)
+        self.assertEqual(SandS.search_list('dog'), 0)
 
+    '''Test to make sure search_list returns -1 if item not present in list.'''
     def test_search_not_found(self):
         self.assertEqual(SandS.search_list('pangolin'), -1)
 
+    '''Test to make sure sort_list returns correctly sorted list.'''
     def test_something(self):
-        animal_list = ['mouse', 'cat', 'dog']
-        self.assertEqual(SandS.sort_list(animal_list), ['dog', 'cat', 'mouse'])
+        self.assertEqual(SandS.sort_list(), ['cat', 'dog', 'mouse'])
 
 
 if __name__ == '__main__':
